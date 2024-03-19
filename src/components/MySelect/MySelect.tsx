@@ -16,14 +16,14 @@ interface InputProps {
 	[key: string]: any;
 }
 
-const MyInput: React.FC<InputProps> = ({
+const MySelect = ({
 	control,
 	errorMessage,
 
 	className,
-
+	children,
 	...props
-}: InputProps) => {
+}: any) => {
 	const {field} = useController({
 		name: props.name || "",
 		control,
@@ -31,15 +31,15 @@ const MyInput: React.FC<InputProps> = ({
 	});
 	return (
 		<div className="">
-			<div>
-				<input
-					{...field}
-					{...props}
-					className={
-						"bg-none  border-gray-300 w-full p-2 text-sm font-light border rounded-sm focus:border-none"
-					}
-				/>
-			</div>
+			<select
+				className={
+					"bg-none  border-gray-300 w-full p-2 text-xs lg:text-sm text-gray-400 font-light border rounded-sm focus:border-none "
+				}
+				{...field}
+				{...props}
+			>
+				{children}
+			</select>
 
 			{errorMessage && (
 				<div className="text-sm text-red-500">{errorMessage}</div>
@@ -48,4 +48,4 @@ const MyInput: React.FC<InputProps> = ({
 	);
 };
 
-export default MyInput;
+export default MySelect;
