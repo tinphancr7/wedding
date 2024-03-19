@@ -31,11 +31,11 @@ export default function Home() {
 					</div>
 					<div className="flex gap-x-2">
 						<span>Số Zalo:</span>
-						<b>0123456789</b>
+						<b>${element?.zalo}</b>
 					</div>
 					<div className="flex gap-x-2">
 						<span>Số DT liên hệ:</span>
-						<b>0123456789</b>
+						<b>${element?.phone}</b>
 					</div>
 				</div>
         `;
@@ -139,8 +139,8 @@ export default function Home() {
 
 	const onSubmit = handleSubmit((data) => {
 		// createPostMutation.mutate(data);
-		console.log("data: ", data);
-		// Export2Doc(data);
+
+		Export2Doc(data);
 	});
 
 	const renderForm = (item) => {
